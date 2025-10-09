@@ -20,7 +20,8 @@ Features
 Database Schema
 ---
 The database consists of 13 tables that form the core functionality of e-commerce system. Below is a visual representation of the database schema:
-![Project Screenshot](images/Screenshot 2025-10-09-025143.png)
+![ERD Diagram SSMS](images/ERD-Diagram-SSMS.jpg)
+
 
 
   
