@@ -72,9 +72,9 @@ The repository includes SQL scripts for all database objects, including tables, 
 
 #### Triggers
 
-trg_PreventNegativeStock – Ensures that product stock levels never go below zero during updates or order transactions.
-trg_LowStockAlert – Raises a warning when an inventory item reaches zero stock, prompting for restock.
-trg_UpdateInventoryOnOrderStatus – When an order is cancelled, automatically increases stock levels for the affected products.
+- trg_PreventNegativeStock – Ensures that product stock levels never go below zero during updates or order transactions.
+- trg_LowStockAlert – Raises a warning when an inventory item reaches zero stock, prompting for restock.
+- trg_UpdateInventoryOnOrderStatus – When an order is cancelled, automatically increases stock levels for the affected products.
 
 ### Future Enchancements
 ---
