@@ -15,7 +15,7 @@ CREATE TABLE [dbo].[Payments] (
 	[payment_id]		[int] IDENTITY (1,1)	NOT NULL,
 	[order_id]			[int]					NOT NULL,
 	[payment_method_id] [int]					NOT NULL,
-	[payment_amount]	[decimal] (10,2)		NOT NULL CHECK (payment_amount > 0),
+	[payment_amount]	[decimal] (10,2)		NOT NULL,
 	[payment_status]	[nvarchar] (20)			NOT NULL, 
 
 	-- PK
@@ -56,6 +56,10 @@ GO
 CREATE NONCLUSTERED INDEX IX_Payments_PaymentMethodID 
     ON dbo.Payments(payment_method_id);
 GO
+-- Add index for payment_method_id
+CREATE NONCLUSTERED INDEX IX_Payments_MethodID
+    ON [dbo].[Payments]([payment_method_id]);
+GO
 
 --=========| Adding CHECK Constraints |===============--
 ALTER TABLE dbo.Payments
@@ -63,8 +67,7 @@ ADD CONSTRAINT CK_PaymentStatus_Allowed
     CHECK(payment_status IN ('Pending', 'Success','Failed','Refunded'))
 GO
 
-
--- Add index for payment_method_id
-CREATE NONCLUSTERED INDEX IX_Payments_MethodID
-    ON [dbo].[Payments]([payment_method_id]);
+ALTER TABLE dbo.Payments
+ADD CONSTRAINT CK_Payment_Allowed 
+    CHECK(payment_amount > 0)
 GO
