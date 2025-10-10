@@ -53,7 +53,7 @@ GO
 
 --=========|Clean, consistent constraint for Product Price |===============--
 
--- Constraint: MethodName must not be empty
+-- Constraint: The price of a product must be greater than zero
 
 ALTER TABLE dbo.Products
 ADD CONSTRAINT CK_Products_Price_Positive
